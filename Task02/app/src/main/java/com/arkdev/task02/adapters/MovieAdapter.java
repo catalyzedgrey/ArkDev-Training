@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.arkdev.task02.R;
-import com.arkdev.task02.interfaces.OnEntryClickListener;
 import com.arkdev.task02.itemviews.MovieItemView;
 import com.arkdev.task02.models.Movie;
 
@@ -15,12 +14,10 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieItemView> {
 
-    List<Movie> movieList;
-    private OnEntryClickListener mOnEntryClickListener;
+    private List<Movie> movieList;
 
+    public MovieAdapter() {
 
-    public MovieAdapter(List<Movie> movieList) {
-        this.movieList = movieList;
     }
 
     @NonNull
@@ -35,11 +32,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieItemView> {
 
         holder.BindMovie(movieList.get(i));
     }
-    public void setOnEntryClickListener(OnEntryClickListener onEntryClickListener) {
-        mOnEntryClickListener = onEntryClickListener;
-    }
+
     @Override
     public int getItemCount() {
-        return movieList.size();
+        return movieList == null ? 0 : movieList.size();
+    }
+
+    public void refreshAdapter(List<Movie> movieList){
+        this.movieList = movieList;
+        notifyDataSetChanged();
     }
 }
