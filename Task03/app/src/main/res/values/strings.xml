@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Task03</string>
+
+    <string name="num1">Enter first number</string>
+
+    <string name="num2">Enter second number</string>
+
+    <string name="sum">Calc Sum</string>
+    <string name="result">Result</string>
+    <string name="plus">+</string>
+</resources>
