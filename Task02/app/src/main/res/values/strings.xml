@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Task02</string>
+
+    <string name="title">Title</string>
+    <string name="genre">Genre</string>
+    <string name="year">Year</string>
+</resources>
