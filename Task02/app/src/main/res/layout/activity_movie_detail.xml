@@ -50,7 +50,7 @@
                 android:id="@+id/overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"/>
+                android:text="@string/overview"/>
 
             <TextView
                 android:id="@+id/overview_tv"
