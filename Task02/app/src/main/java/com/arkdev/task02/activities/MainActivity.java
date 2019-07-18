@@ -26,6 +26,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import network.Controller;
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -36,30 +38,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitViews();
-        PrepareMovieData();
+        //PrepareMovieData();
     }
 
     private void InitViews() {
         recyclerView = findViewById(R.id.recycler_view);
-        MovieAdapter adapter = new MovieAdapter(movieList);
+        MovieAdapter adapter = new MovieAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.notifyDataSetChanged();
+
+        Controller controller = new Controller();
+        controller.start(adapter);
+
     }
 
-
-    private void PrepareMovieData() {
-
-        Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2015", R.drawable.ic_launcher_foreground);
-        movieList.add(movie);
-
-        movie = new Movie("Inside Out", "Animation, Kids & Family", "2015", R.drawable.ic_launcher_foreground);
-        movieList.add(movie);
-
-        movie = new Movie("Star Wars", "Action & Adventure", "2015", R.drawable.ic_launcher_foreground);
-        movieList.add(movie);
-
-        movie = new Movie("The Martian", "Action & Adventure", "2015", R.drawable.ic_launcher_foreground);
-        movieList.add(movie);
-    }
 }

@@ -7,10 +7,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arkdev.task02.R;
+import com.bumptech.glide.Glide;
 
 public class MovieDetailActivity extends AppCompatActivity {
     ImageView imgView;
-    TextView titleTV, genreTV, yearTV;
+    TextView titleTV, yearTV, overviewTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +25,16 @@ public class MovieDetailActivity extends AppCompatActivity {
     private void InitViews() {
         imgView = findViewById(R.id.cover_img);
         titleTV = findViewById(R.id.title_tv);
-        genreTV = findViewById(R.id.genre_tv);
         yearTV = findViewById(R.id.year_tv);
+        overviewTV = findViewById(R.id.overview_tv);
     }
 
-    private void PopulateViews()
-    {
+    private void PopulateViews() {
         Intent i = getIntent();
         titleTV.setText(i.getStringExtra("title"));
-        genreTV.setText(i.getStringExtra("genre"));
         yearTV.setText(i.getStringExtra("year"));
-       imgView.setImageResource(i.getIntExtra("img", 0));
+        Glide.with(this).load(i.getStringExtra("img")).into(imgView);
+        overviewTV.setText(i.getStringExtra("overview"));
 
     }
 }
